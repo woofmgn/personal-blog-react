@@ -1,11 +1,22 @@
 @import '../vendor/normalize';
+@import '../vendor/fonts/fonts.scss';
+
+.root {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+}
 
 body {
   background-color: #202020;
 }
 
 .page {
-  max-width: 1440px;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
 }
 
 @import '../components/Header/styles';
+@import '../components/Sidebar/styles';

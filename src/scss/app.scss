@@ -1,0 +1,11 @@
+@import '../vendor/normalize';
+
+body {
+  background-color: #202020;
+}
+
+.page {
+  max-width: 1440px;
+}
+
+@import '../components/Header/styles';

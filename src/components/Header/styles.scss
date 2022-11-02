@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  max-width: 100%;
+
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 23px;
+
+    li {}
+  }
+}
+
+.header__link {
+  text-decoration: none;
+}

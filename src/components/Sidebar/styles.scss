@@ -1,14 +1,113 @@
-.wrapper {
+.sidebar {
   display: flex;
   flex-direction: column;
   max-width: 300px;
-  // width: 100%;
+  width: 100%;
   background-color: #202020;
   box-shadow: 5px 0px 15px rgba(5, 5, 5, 0.1);
+
+  &__image {
+    display: flex;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  &__avatar {
+    margin: 0 auto 15px auto;
+    display: flex;
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    // margin: 0 100px 0 100px;
+    translate: 0 -50px;
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  &__name {
+    margin-top: -50px;
+    padding-bottom: 5px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  &__status {
+    padding-bottom: 17px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #DEDEDE;
+  }
+
+  &__social {
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  &__link {
+    display: flex;
+    // max-width: 25px;
+    // max-height: 25px;
+    // width: 100%;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    background-repeat: no-repeat;
+
+    &_type_instagram {
+      background-image: url('../../images/instagram.svg');
+    }
+
+    &_type_vk {
+      background-image: url('../../images/vk.svg');
+    }
+
+    &_type_pinterest {
+      background-image: url('../../images/pinterest.svg');
+    }
+  }
+
+  &__about {
+    padding: 0 20px 60px 20px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+  }
 }
 
-.sidebar__image {
+.send-container {
   display: flex;
-  max-width: 300px;
-  width: 100%;
+  justify-content: center;
+  gap: 20px;
+
+  &__link {
+    padding: 13px 0 13px 0;
+    max-width: 120px;
+    width: 100%;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #ED3024;
+    box-shadow: 0px 7px 17px -10px rgba(242, 63, 63, 0.2);
+    border-radius: 25px;
+  }
+
+  &__link:last-child {
+    background-color: #3137C9;
+  }
 }

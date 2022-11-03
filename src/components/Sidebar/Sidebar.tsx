@@ -13,7 +13,7 @@ const Sidebar = () => {
         <a className="sidebar__link sidebar__link_type_vk" href="/#" />
         <a className="sidebar__link sidebar__link_type_pinterest" href="/#" />
       </div>
-      <p className="sidebar__about">Front-end разработчик. Практик верстки сайтов. Созданием сайтов занимаюсь с 2012 года. Работал в нескольких ИТ компаниях и наработал более 10 000 часов в создании сайтов различной сложности.</p>
+      <p className="sidebar__about">Однажды здесь здесь появится увлекательное описание Однажды здесь здесь появится увлекательное описание Однажды здесь здесь появится увлекательное описание Однажды здесь здесь появится увлекательное описание</p>
       <div className="send-container">
         <a className="send-container__link" href="/#">Мои работы</a>
         <a className="send-container__link" href="/#">Мои работы</a>

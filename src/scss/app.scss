@@ -10,11 +10,12 @@
 }
 
 body {
-  background-color: #202020;
+  background-color: #181818;
 }
 
 .page {
   display: flex;
+  flex-direction: column;
   max-width: 700px;
   min-width: 320px;
   margin: 0 auto;
@@ -23,3 +24,4 @@ body {
 
 @import '../components/Header/styles';
 @import '../components/Sidebar/styles';
+@import '../components/Main/styles';

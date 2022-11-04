@@ -16,7 +16,7 @@ const Sidebar = () => {
       <p className="sidebar__about">Однажды здесь здесь появится увлекательное описание Однажды здесь здесь появится увлекательное описание Однажды здесь здесь появится увлекательное описание Однажды здесь здесь появится увлекательное описание</p>
       <div className="send-container">
         <a className="send-container__link" href="/#">Мои работы</a>
-        <a className="send-container__link" href="/#">Мои работы</a>
+        <a className="send-container__link" href="/#">Написать мне</a>
       </div>
     </div>
   )

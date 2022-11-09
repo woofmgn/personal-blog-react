@@ -1,7 +1,25 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { getArticlesList } from '../../redux/slices/articlesSlice';
+import { RootState, useAppDispatch } from "../../redux/store";
+
 import Articles from "../Articles/Articles";
 import Stories from "../Stories/Stories";
 
 const Main = () => {
+  const dispatch = useAppDispatch();
+
+  const { items, status } = useSelector((state: RootState) => state.articles);
+
+  const getArticles = () => {
+    dispatch(getArticlesList())
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, []);
+
+
   return (
     <main className="content">
       <Stories />

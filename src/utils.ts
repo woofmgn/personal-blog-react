@@ -31,7 +31,7 @@ const data = [
     "category": "IT-технологии",
     "date": "03.07.2022"
   },
-]
+];
 
 export { data };
 

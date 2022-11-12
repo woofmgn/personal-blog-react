@@ -44,7 +44,10 @@ const articlesSlice = createSlice({
     pushArticles(state, action: PayloadAction<Article[]>) {
       state.status = 'loading';
       state.items = action.payload;
-    }
+    },
+    // addArticles(state, action) {
+    //   state.items.push(...action.payload);
+    // }
   },
   extraReducers: (builder) => {
     builder.addCase(getArticlesList.pending, (state, action) => {

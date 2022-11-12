@@ -8,8 +8,8 @@ export const getStoriesList = createAsyncThunk(
   }
 )
 
-type Stories = {
-  id: number;
+export type Stories = {
+  id?: string;
   title: string;
   imageUrl: string;
   date: string;
@@ -32,6 +32,9 @@ const storiesSlice = createSlice({
     pushStories(state, action: PayloadAction<Stories[]>) {
       state.status = 'loading';
       state.items = action.payload;
+    },
+    addStories(state, action) {
+      state.items.push({ ...action.payload });
     }
   },
   extraReducers: (builder) => {
@@ -52,6 +55,6 @@ const storiesSlice = createSlice({
   }
 });
 
-export const { pushStories } = storiesSlice.actions;
+export const { pushStories, addStories } = storiesSlice.actions;
 
 export default storiesSlice.reducer;

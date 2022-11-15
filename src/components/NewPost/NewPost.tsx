@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addStories, setStoriesList, Stories, toggleInputUrl } from "../../redux/slices/storiesSlice";
+import { setStoriesList, Stories, toggleInputUrl } from "../../redux/slices/storiesSlice";
 import { RootState } from "../../redux/store";
 
 import { useState } from 'react';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 const NewPost = () => {
   const dispatch = useDispatch();
 
-  const { items, inputUrl, status } = useSelector((state: RootState) => state.stories);
+  const { inputUrl } = useSelector((state: RootState) => state.stories);
 
   const [inputTitleValue, setInputTitleValue] = useState('');
   const [inputUrlValue, setInputUrlValue] = useState('');
@@ -27,14 +27,12 @@ const NewPost = () => {
   const handleSubmit = (evt: { preventDefault: () => void; }) => {
     const nowDate = new Date();
     const item: Stories = {
-      // id: '13',
       title: inputTitleValue,
       imageUrl: inputUrlValue,
       date: nowDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'numeric', year: 'numeric' }),
     }
 
     evt.preventDefault();
-    dispatch(addStories(item));
     //@ts-ignore
     dispatch(setStoriesList(item))
     setInputTitleValue('');

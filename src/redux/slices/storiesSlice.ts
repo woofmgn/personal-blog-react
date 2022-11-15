@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { useDispatch } from "react-redux";
 
 export const getStoriesList = createAsyncThunk(
   'stories/getStoriesList', async () => {
@@ -10,10 +9,10 @@ export const getStoriesList = createAsyncThunk(
 )
 
 export const setStoriesList = createAsyncThunk(
-  'stories/setStoriesList', async (dataStories) => {
+  'stories/setStoriesList', async (dataStories, { dispatch }) => {
     const res = await axios.post('https://636b9dd27f47ef51e13586c9.mockapi.io/stories', dataStories)
-    const dispatch = useDispatch();
-    dispatch(addStories(res));
+    console.log(res.data);
+    dispatch(addStories(res.data));
   }
 )
 

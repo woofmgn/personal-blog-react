@@ -16,12 +16,14 @@ export type Stories = {
 }
 
 interface StoriesItemsState {
-  items: Stories[],
+  items: Stories[];
+  inputUrl: boolean;
   status: 'loading' | 'success' | 'error';
 }
 
 const initialState: StoriesItemsState = {
   items: [],
+  inputUrl: false,
   status: 'loading',
 };
 
@@ -35,6 +37,9 @@ const storiesSlice = createSlice({
     },
     addStories(state, action) {
       state.items.push({ ...action.payload });
+    },
+    toggleInputUrl(state, action: PayloadAction) {
+      state.inputUrl = !state.inputUrl;
     }
   },
   extraReducers: (builder) => {
@@ -55,6 +60,6 @@ const storiesSlice = createSlice({
   }
 });
 
-export const { pushStories, addStories } = storiesSlice.actions;
+export const { pushStories, addStories, toggleInputUrl } = storiesSlice.actions;
 
 export default storiesSlice.reducer;

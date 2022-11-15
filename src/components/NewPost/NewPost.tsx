@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addStories, Stories } from "../../redux/slices/storiesSlice";
+import { addStories, Stories, toggleInputUrl } from "../../redux/slices/storiesSlice";
 import { RootState } from "../../redux/store";
 
 import { useState } from 'react';
@@ -7,7 +7,7 @@ import { useState } from 'react';
 const NewPost = () => {
   const dispatch = useDispatch();
 
-  const { items, status } = useSelector((state: RootState) => state.stories);
+  const { items, inputUrl, status } = useSelector((state: RootState) => state.stories);
 
   const [inputValue, setInputValue] = useState('');
 
@@ -28,19 +28,40 @@ const NewPost = () => {
     dispatch(addStories(item));
   }
 
+  const openInputUrl = () => {
+    dispatch(toggleInputUrl());
+  }
+
   return (
     <section className="new-post">
       <form className="posting-form" onSubmit={handleSubmit}>
-        <input
-          onChange={handleStories}
-          className="posting-form__input"
-          type="text"
-          placeholder="Напишите что-нибудь"
-        />
-        <div className="posting-form__button-container">
-          <button className="posting-form__button posting-form__button_type_upload-photo" type="button"></button>
-          <button className="posting-form__button posting-form__button_type_submit" type='submit'></button>
+        <div className="form-wrapper">
+          <input
+            onChange={handleStories}
+            className="posting-form__input posting-form__input_type_title"
+            type="text"
+            placeholder="Напишите что-нибудь"
+          />
+
+          <div className="posting-form__button-container">
+            <button
+              className="posting-form__button posting-form__button_type_upload-photo"
+              type="button"
+              onClick={openInputUrl}
+            />
+            <button
+              className="posting-form__button posting-form__button_type_submit"
+              type='submit'
+            />
+          </div>
         </div>
+        {
+          inputUrl && <input
+            type="url"
+            className="posting-form__input posting-form__input_type_image"
+            placeholder="Введиите URL картинки"
+          />
+        }
       </form>
     </section>
   )

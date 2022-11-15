@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addStories, Stories, toggleInputUrl } from "../../redux/slices/storiesSlice";
+import { addStories, setStoriesList, Stories, toggleInputUrl } from "../../redux/slices/storiesSlice";
 import { RootState } from "../../redux/store";
 
 import { useState } from 'react';
@@ -9,27 +9,37 @@ const NewPost = () => {
 
   const { items, inputUrl, status } = useSelector((state: RootState) => state.stories);
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputTitleValue, setInputTitleValue] = useState('');
+  const [inputUrlValue, setInputUrlValue] = useState('');
 
-  const handleStories = (evt: { id?: number | undefined; title?: string; imageUrl?: string; date?: string; target?: any; }) => {
-    setInputValue(evt.target.value);
+  const handleTitleStories = (evt: { id?: number | undefined; title?: string; imageUrl?: string; date?: string; target?: any; }) => {
+    setInputTitleValue(evt.target.value);
   }
 
-
-  const handleSubmit = (evt: { preventDefault: () => void; }) => {
-    const item: Stories = {
-      id: '13',
-      title: inputValue,
-      imageUrl: "https://avatars.dzeninfra.ru/get-zen_doc/4593804/pub_612757887bd64515eaff1a9c_612757a4f5d05136392d639c/scale_1200",
-      date: "01.01.2022"
-    }
-
-    evt.preventDefault();
-    dispatch(addStories(item));
+  const handleUrlStories = (evt: { id?: number | undefined; title?: string; imageUrl?: string; date?: string; target?: any; }) => {
+    setInputUrlValue(evt.target.value);
   }
 
   const openInputUrl = () => {
     dispatch(toggleInputUrl());
+  }
+
+  const handleSubmit = (evt: { preventDefault: () => void; }) => {
+    const nowDate = new Date();
+    const item: Stories = {
+      // id: '13',
+      title: inputTitleValue,
+      imageUrl: inputUrlValue,
+      date: nowDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'numeric', year: 'numeric' }),
+    }
+
+    evt.preventDefault();
+    dispatch(addStories(item));
+    //@ts-ignore
+    dispatch(setStoriesList(item))
+    setInputTitleValue('');
+    setInputUrlValue('');
+    openInputUrl();
   }
 
   return (
@@ -37,7 +47,8 @@ const NewPost = () => {
       <form className="posting-form" onSubmit={handleSubmit}>
         <div className="form-wrapper">
           <input
-            onChange={handleStories}
+            onChange={handleTitleStories}
+            value={inputTitleValue || ''}
             className="posting-form__input posting-form__input_type_title"
             type="text"
             placeholder="Напишите что-нибудь"
@@ -57,6 +68,8 @@ const NewPost = () => {
         </div>
         {
           inputUrl && <input
+            onChange={handleUrlStories}
+            value={inputUrlValue || ''}
             type="url"
             className="posting-form__input posting-form__input_type_image"
             placeholder="Введиите URL картинки"

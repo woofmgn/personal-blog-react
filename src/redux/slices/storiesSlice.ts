@@ -1,10 +1,19 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from 'axios';
+import { useDispatch } from "react-redux";
 
 export const getStoriesList = createAsyncThunk(
-  'articles/getStoriesList', async () => {
+  'stories/getStoriesList', async () => {
     const res = await axios.get('https://636b9dd27f47ef51e13586c9.mockapi.io/stories');
     return res.data
+  }
+)
+
+export const setStoriesList = createAsyncThunk(
+  'stories/setStoriesList', async (dataStories) => {
+    const res = await axios.post('https://636b9dd27f47ef51e13586c9.mockapi.io/stories', dataStories)
+    const dispatch = useDispatch();
+    dispatch(addStories(res));
   }
 )
 

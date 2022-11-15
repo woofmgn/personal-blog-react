@@ -11,7 +11,6 @@ export const getStoriesList = createAsyncThunk(
 export const setStoriesList = createAsyncThunk(
   'stories/setStoriesList', async (dataStories, { dispatch }) => {
     const res = await axios.post('https://636b9dd27f47ef51e13586c9.mockapi.io/stories', dataStories)
-    console.log(res.data);
     dispatch(addStories(res.data));
   }
 )

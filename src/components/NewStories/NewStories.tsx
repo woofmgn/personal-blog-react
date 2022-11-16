@@ -4,7 +4,8 @@ import { RootState } from "../../redux/store";
 
 import { useState } from 'react';
 
-const NewPost = () => {
+const NewStories = () => {
+
   const dispatch = useDispatch();
 
   const { inputUrl } = useSelector((state: RootState) => state.stories);
@@ -41,41 +42,39 @@ const NewPost = () => {
   }
 
   return (
-    <section className="new-post">
-      <form className="posting-form" onSubmit={handleSubmit}>
-        <div className="form-wrapper">
-          <input
-            onChange={handleTitleStories}
-            value={inputTitleValue || ''}
-            className="posting-form__input posting-form__input_type_title"
-            type="text"
-            placeholder="Напишите что-нибудь"
-          />
+    <form className="posting-form" onSubmit={handleSubmit}>
+      <div className="form-wrapper">
+        <input
+          onChange={handleTitleStories}
+          value={inputTitleValue || ''}
+          className="posting-form__input posting-form__input_type_title"
+          type="text"
+          placeholder="Новая история"
+        />
 
-          <div className="posting-form__button-container">
-            <button
-              className="posting-form__button posting-form__button_type_upload-photo"
-              type="button"
-              onClick={openInputUrl}
-            />
-            <button
-              className="posting-form__button posting-form__button_type_submit"
-              type='submit'
-            />
-          </div>
-        </div>
-        {
-          inputUrl && <input
-            onChange={handleUrlStories}
-            value={inputUrlValue || ''}
-            type="url"
-            className="posting-form__input posting-form__input_type_image"
-            placeholder="Введиите URL картинки"
+        <div className="posting-form__button-container">
+          <button
+            className="posting-form__button posting-form__button_type_upload-photo"
+            type="button"
+            onClick={openInputUrl}
           />
-        }
-      </form>
-    </section>
+          <button
+            className="posting-form__button posting-form__button_type_submit"
+            type='submit'
+          />
+        </div>
+      </div>
+      {
+        inputUrl && <input
+          onChange={handleUrlStories}
+          value={inputUrlValue || ''}
+          type="url"
+          className="posting-form__input posting-form__input_type_image"
+          placeholder="Введиите URL картинки"
+        />
+      }
+    </form>
   )
 }
 
-export default NewPost;
+export default NewStories;

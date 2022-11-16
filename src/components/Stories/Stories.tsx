@@ -22,14 +22,12 @@ const Stories = () => {
     <section className="stories">
       <ul className="stories-container">
         {
-          items.map((item, index, arr) => (
-            index > arr.length - 5 ? (
-              <li className="stories-container__item" key={item.id}>
-                <img className="stories-container__image" src={item.imageUrl} alt={item.title} />
-                <h2 className="stories-container__title">{item.title}</h2>
-                <p className="stories-container__date">{item.date}</p>
-              </li>
-            ) : ('')
+          items.slice(items.length - 5, items.length - 1).map((item) => (
+            <li className="stories-container__item" key={item.id}>
+              <img className="stories-container__image" src={item.imageUrl} alt={item.title} />
+              <h2 className="stories-container__title">{item.title}</h2>
+              <p className="stories-container__date">{item.date}</p>
+            </li>
           )
           )
         }

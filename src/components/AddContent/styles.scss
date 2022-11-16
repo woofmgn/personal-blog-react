@@ -1,0 +1,32 @@
+.new-post {
+  margin-bottom: 30px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 148px;
+  background-color: #121212;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.45);
+  border-radius: 5px;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-article {
+  padding: 13px 0 13px 0;
+  margin-right: 28px;
+  max-width: 120px;
+  max-height: 44px;
+  width: 100%;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #ED3024;
+  box-shadow: 0px 7px 17px -10px rgb(242 63 63 / 20%);
+  border-radius: 25px;
+  align-self: center;
+}

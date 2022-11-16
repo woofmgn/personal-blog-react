@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { getArticlesList } from '../../redux/slices/articlesSlice';
 import { RootState, useAppDispatch } from "../../redux/store";
 
+import AddContent from "../AddContent/AddContent";
 import ArtictesItem from "../ArtictesItem/ArtictesItem";
-import NewPost from "../NewPost/NewPost";
 import Stories from "../Stories/Stories";
 
 
@@ -12,7 +12,7 @@ import Stories from "../Stories/Stories";
 const Main = () => {
   const dispatch = useAppDispatch();
 
-  const { items, status } = useSelector((state: RootState) => state.articles);
+  const { items } = useSelector((state: RootState) => state.articles);
 
   const getArticles = () => {
     dispatch(getArticlesList())
@@ -26,7 +26,7 @@ const Main = () => {
   return (
     <main className="content">
       <Stories />
-      <NewPost />
+      <AddContent />
       <section className="articles">
         <ul className="post-list">
           {
